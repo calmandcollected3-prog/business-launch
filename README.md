@@ -12,12 +12,12 @@ A bounded service for small support teams that want faster first replies without
 - Compare median first-response time with the buyer's normal process.
 - Stop on PII exposure, unsafe instructions, or any request for unsupervised outbound messaging.
 
-### Starter scope
+### Starter scope — proposed $25
 
-Up to 10 redacted or synthetic tickets, with a structured triage sheet and one draft response per ticket.
+Up to 10 redacted or synthetic tickets, with a structured triage sheet and one draft response per ticket. Price and scope are confirmed before work begins; do not send payment through GitHub issues.
 
 ### Buyer requirements
 
-Please provide only the helpdesk type, approximate ticket volume, current median first-response time if known, escalation rules, and redacted or synthetic examples. Do not provide credentials, customer names, email addresses, raw private tickets, or payment data.
+Please provide only the helpdesk type, approximate ticket volume, current median first-response time if known, escalation rules, and redacted or synthetic examples. Do not provide credentials, customer names, email addresses, raw private tickets, payment data, or API keys.
 
 This repository is an owner-reviewable service description. It is not an automated support account, customer-data processor, payment processor, or treasury interface.
