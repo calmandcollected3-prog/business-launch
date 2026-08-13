@@ -2,6 +2,7 @@
 
 A bounded, privacy-first service for small support teams that want faster first replies without handing customer conversations to an unsupervised bot. The workflow covers helpdesk ticket triage, priority and category assignment, escalation flags, owner suggestions, and human-reviewable response drafting.
 
+**Try the synthetic demo:** [run it locally in your browser](https://github.com/calmandcollected3-prog/business-launch/blob/main/demo.html)  
 **Request a pilot:** [open a pilot request](https://github.com/calmandcollected3-prog/business-launch/issues/new?template=pilot-request.md)
 
 ## Seven-day pilot
