@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Try a local, synthetic support-ticket triage demo. No data leaves your browser.">
+<title>Support triage demo — synthetic data only</title>
+<style>
+:root{font-family:Inter,system-ui,sans-serif;color:#17202a;background:#f5f7fa}
+body{margin:0}.wrap{max-width:860px;margin:0 auto;padding:40px 20px}
+.card{background:#fff;border:1px solid #dce3ea;border-radius:16px;padding:26px;box-shadow:0 12px 40px #17202a12}
+h1{color:#102a43;margin-top:0}p,label{line-height:1.55}textarea{width:100%;min-height:170px;box-sizing:border-box;padding:12px;border:1px solid #b8c4ce;border-radius:8px;font:inherit}
+button,a{display:inline-block;margin-top:12px;padding:11px 15px;border-radius:8px;font-weight:700;text-decoration:none}
+button{border:0;background:#1f4e79;color:#fff;cursor:pointer}a{background:#e8eef5;color:#1f4e79}
+.note{border-left:4px solid #3b82f6;padding-left:14px}.result{margin-top:20px;background:#f7fafc;border-radius:10px;padding:16px;display:none}
+.result dt{font-weight:700;color:#1f4e79}.result dd{margin:3px 0 12px}
+</style>
+</head>
+<body><main class="wrap"><section class="card">
+<h1>Try support triage locally</h1>
+<p class="note"><strong>Use synthetic text only.</strong> This demo runs entirely in your browser. Do not paste customer names, email addresses, private tickets, credentials, payment details, or API keys.</p>
+<label for="ticket">Synthetic ticket</label>
+<textarea id="ticket" placeholder="Example: Customer cannot log in after changing their password. They need access before tomorrow's launch."></textarea>
+<br><button id="run">Generate draft triage</button>
+<a href="https://github.com/calmandcollected3-prog/business-launch/issues/new?template=pilot-request.md">Request a paid pilot</a>
+<div id="result" class="result"><dl>
+<dt>Priority</dt><dd id="priority"></dd>
+<dt>Category</dt><dd id="category"></dd>
+<dt>Suggested owner</dt><dd id="owner"></dd>
+<dt>Escalation flag</dt><dd id="escalation"></dd>
+<dt>Draft reply</dt><dd id="reply"></dd>
+</dl></div>
+</section></main>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const has = (text, words) => words.some(word => text.includes(word));
+  $("run").addEventListener("click", () => {
+    const text = $("ticket").value.trim().toLowerCase();
+    if (!text) return;
+    const urgent = has(text, ["urgent","asap","outage","down","blocked","before tomorrow","security"]);
+    const billing = has(text, ["invoice","charge","refund","billing","payment"]);
+    const access = has(text, ["login","log in","password","access","locked"]);
+    const bug = has(text, ["bug","error","broken","crash","not working"]);
+    const priority = urgent ? "High" : (bug || access ? "Normal" : "Low");
+    const category = billing ? "Billing" : (access ? "Account access" : (bug ? "Technical issue" : "General support"));
+    const owner = billing ? "Billing" : (access ? "Customer operations" : (bug ? "Technical support" : "Support queue"));
+    const escalation = urgent || has(text, ["security","data leak","legal"]) ? "Review required" : "No automatic escalation";
+    $("priority").textContent = priority;
+    $("category").textContent = category;
+    $("owner").textContent = owner;
+    $("escalation").textContent = escalation;
+    $("reply").textContent = "Thanks for flagging this. We have recorded the issue and are reviewing the next step. A team member will confirm the resolution path and timing.";
+    $("result").style.display = "block";
+  });
+})();
+</script>
+</body></html>
