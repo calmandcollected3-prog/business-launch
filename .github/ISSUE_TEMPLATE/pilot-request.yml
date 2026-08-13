@@ -1,0 +1,47 @@
+name: Pilot request
+description: Request a human-reviewed, redacted-ticket support triage pilot
+title: "[Pilot request] "
+labels: ["pilot-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include customer names, email addresses, raw ticket text, credentials, API keys, payment data, or private account details.
+  - type: input
+    id: helpdesk
+    attributes:
+      label: Helpdesk type
+      description: "Example: Zendesk, Freshdesk, Intercom, or other."
+      placeholder: "Helpdesk type"
+    validations:
+      required: true
+  - type: input
+    id: volume
+    attributes:
+      label: Approximate weekly ticket volume
+      placeholder: "Example: 20"
+    validations:
+      required: true
+  - type: input
+    id: baseline
+    attributes:
+      label: Current median first-response time
+      placeholder: "Example: 180 minutes, or unknown"
+    validations:
+      required: true
+  - type: textarea
+    id: rules
+    attributes:
+      label: Escalation rules and brand tone
+      description: "Describe rules only; do not paste customer messages."
+    validations:
+      required: true
+  - type: checkboxes
+    id: data
+    attributes:
+      label: Data handling
+      options:
+        - label: "I will provide redacted or synthetic examples only."
+          required: true
+        - label: "I understand every output is a draft for my approval and no message will be sent automatically."
+          required: true
