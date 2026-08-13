@@ -2,6 +2,8 @@
 
 A bounded service for small support teams that want faster first replies without handing customer conversations to an unsupervised bot.
 
+**Request a pilot:** [open a pilot request](https://github.com/calmandcollected3-prog/business-launch/issues/new?template=pilot-request.md)
+
 ## Seven-day pilot
 
 - Review redacted or synthetic tickets only.
