@@ -1,6 +1,6 @@
-# Human-reviewed support triage
+# Human-reviewed support triage for small support teams
 
-A bounded service for small support teams that want faster first replies without handing customer conversations to an unsupervised bot.
+A bounded, privacy-first service for small support teams that want faster first replies without handing customer conversations to an unsupervised bot. The workflow covers helpdesk ticket triage, priority and category assignment, escalation flags, owner suggestions, and human-reviewable response drafting.
 
 **Request a pilot:** [open a pilot request](https://github.com/calmandcollected3-prog/business-launch/issues/new?template=pilot-request.md)
 
@@ -20,4 +20,4 @@ Up to 10 redacted or synthetic tickets, with a structured triage sheet and one d
 
 Please provide only the helpdesk type, approximate ticket volume, current median first-response time if known, escalation rules, and redacted or synthetic examples. Do not provide credentials, customer names, email addresses, raw private tickets, payment data, or API keys.
 
-This repository is an owner-reviewable service description. It is not an automated support account, customer-data processor, payment processor, or treasury interface.
+This public repository is an owner-reviewable service description. It is not an automated support account, customer-data processor, payment processor, or treasury interface.
